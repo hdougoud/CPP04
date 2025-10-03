@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:14:21 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/03 13:29:59 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/03 15:52:26 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@ int	main(void)
 {
 	Animal test;
 
+	test.makeSound();
 	return (0);
 }

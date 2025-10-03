@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:14:33 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/03 10:20:02 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/03 15:54:40 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ class Animal
 {
 	public:
 		Animal();
+		Animal(const std::string &type);
 		Animal(const Animal &src);
 		Animal &operator=(const Animal &src);
 		~Animal();
+		void makeSound(void);
 	protected:
 		std::string	_type;
 };
