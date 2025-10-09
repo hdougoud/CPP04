@@ -1,0 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/09 15:08:07 by hdougoud          #+#    #+#             */
+/*   Updated: 2025/10/09 15:08:11 by hdougoud         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
+
+#include <iostream>
+
+class WrongAnimal
+{
+	public:
+		WrongAnimal();
+		WrongAnimal(const WrongAnimal &src);
+		WrongAnimal &operator=(const WrongAnimal &src);
+		~WrongAnimal();
+		void		makeSound(void) const;
+		std::string	getType(void) const;
+	protected:
+		std::string	_type;
+};
+
+#endif

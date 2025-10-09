@@ -15,6 +15,7 @@
 Animal::Animal() : _type("Animal")
 {
 	std::cout << "Animal : Default constructor called" << std::endl;
+	return ;
 }
 
 Animal::Animal(const std::string &type) : _type(type)
@@ -41,9 +42,15 @@ Animal &Animal::operator=(const Animal &src)
 Animal::~Animal()
 {
 	std::cout << "Animal : Default destructor called" << std::endl;
+	return ;
 }
 
-void	Animal::makeSound(void)
+void	Animal::makeSound(void) const
 {
 	std::cout << "Generic animal noise" << std::endl;
+}
+
+std::string	Animal::getType(void) const
+{
+	return (this->_type);
 }

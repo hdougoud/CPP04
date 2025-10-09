@@ -11,11 +11,36 @@
 /* ************************************************************************** */
 
 #include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int	main(void)
 {
-	Animal test;
+	const Animal *generic = new Animal();
+	const Animal *dog = new Dog();
+	const Animal *cat = new Cat();
+	const WrongAnimal *wrongGeneric = new WrongAnimal();
+	const WrongAnimal *wrongCat = new WrongCat();
+	std::cout << std::endl;
 
-	test.makeSound();
+	std::cout << cat->getType() << " " << std::endl;
+	std::cout << dog->getType() << " " << std::endl;
+	std::cout << generic->getType() << " " << std::endl;
+	std::cout << wrongGeneric->getType() << " " << std::endl;
+	std::cout << wrongCat->getType() << " " << std::endl;
+	cat->makeSound();
+	dog->makeSound();
+	generic->makeSound();
+	wrongGeneric->makeSound();
+	wrongCat->makeSound();
+
+	std::cout << std::endl;
+	delete(wrongGeneric);
+	delete(wrongCat);
+	delete(cat);
+	delete(dog);
+	delete(generic);
 	return (0);
 }
