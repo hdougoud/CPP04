@@ -24,8 +24,10 @@ class Cat : public Animal
 		Cat &operator=(const Cat &src);
 		virtual ~Cat();
 		virtual void makeSound(void) const;
+		void		setIdea(std::string idea, int idx);
+		std::string	getIdea(int idx);
 	private:
-		Brain *brain;
+		Brain	*brain;
 };
 
 #endif

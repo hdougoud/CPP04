@@ -13,27 +13,38 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 
 int	main(void)
 {
-	const Animal *generic = new Animal();
-	const Animal *dog = new Dog();
-	const Animal *cat = new Cat();
-	const Dog dog2()
-	std::cout << std::endl;
+	{
+		std::cout << "SUBJECT MAIN" << std::endl;
+		const Animal *j = new Dog();
+		const Animal *i = new Cat();
 
-	std::cout << cat->getType() << " " << std::endl;
-	std::cout << dog->getType() << " " << std::endl;
-	std::cout << generic->getType() << " " << std::endl;
-	cat->makeSound();
-	dog->makeSound();
-	generic->makeSound();
+		delete j;
+		delete i;
+	}
+	{
+		std::cout << "\nDOG BRAIN TEST" << std::endl;
+		Dog labrador;
+		Dog	goldenRetrever;
 
-	std::cout << std::endl;
-	delete(cat);
-	delete(dog);
-	delete(generic);
+		std::cout << labrador.getIdea(0) << std::endl;
+		std::cout << goldenRetrever.getIdea(0) << std::endl;
+		labrador.setIdea("Sleep", 0);
+		std::cout << labrador.getIdea(0) << std::endl;
+		std::cout << goldenRetrever.getIdea(0) << std::endl;
+	}
+	{
+		std::cout << "\nCAT BRAIN TEST" << std::endl;
+		Cat	ragDoll;
+		Cat	persian;
+
+		std::cout << ragDoll.getIdea(0) << std::endl;
+		std::cout << persian.getIdea(0) << std::endl;
+		ragDoll.setIdea("purr", 0);
+		std::cout << ragDoll.getIdea(0) << std::endl;
+		std::cout << persian.getIdea(0) << std::endl;
+	}
 	return (0);
 }

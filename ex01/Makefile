@@ -1,6 +1,6 @@
 NAME	= Animal
 CXX		= g++
-CFLAGS	= -Wall -Werror -Wextra -std=c++98
+CFLAGS	= -Wall -Werror -Wextra -std=c++98 -g
 
 SRCS	= main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 OBJECT	= $(SRCS:.cpp=.o)
