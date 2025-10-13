@@ -12,17 +12,17 @@
 
 #include "Cat.hpp"
 
-Cat::Cat() : brain(new Brain)
+Cat::Cat() : _brain(new Brain)
 {
 	this->_type = "Cat";
-	std::cout << "Cat : Default constructor called" << std::endl;
+	std::cout << GREEN << "Cat : Default constructor called" << RESET << std::endl;
 	return ;
 }
 
 Cat::Cat(const Cat &src) : Animal(src)
 {
-	this->brain = new Brain(*(src.brain));
-	std::cout << "Cat : Copy Constructor called" << std::endl;
+	this->_brain = new Brain(*(src._brain));
+	std::cout << GREEN << "Cat : Copy Constructor called" << RESET << std::endl;
 	return ;
 }
 
@@ -30,17 +30,17 @@ Cat	&Cat::operator=(const Cat &src)
 {
 	if (this != &src)
 	{
-		*(this->brain) = *(src.brain);
+		*(this->_brain) = *(src._brain);
 		this->_type = src._type;
 	}
-	std::cout << "Cat : Assignment operator called" << std::endl;
+	std::cout << BLUE << "Cat : Assignment operator called" << RESET << std::endl;
 	return (*this);
 }
 
 Cat::~Cat()
 {
-	delete brain;
-	std::cout << "Cat : Default destructor called" << std::endl;
+	delete this->_brain;
+	std::cout << RED << "Cat : Default destructor called" << RESET <<std::endl;
 	return ;
 }
 
@@ -51,10 +51,10 @@ void Cat::makeSound(void) const
 
 std::string	Cat::getIdea(int idx)
 {
-	return (this->brain->_ideas[idx]);
+	return (this->_brain->_ideas[idx]);
 }
 
 void	Cat::setIdea(std::string idea, int idx)
 {
-	this->brain->_ideas[idx] = idea;
+	this->_brain->_ideas[idx] = idea;
 }

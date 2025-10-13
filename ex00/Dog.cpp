@@ -11,17 +11,17 @@
 /* ************************************************************************** */
 
 #include "Dog.hpp"
+#include "color.hpp"
 
-Dog::Dog()
+Dog::Dog() : Animal("Dog")
 {
-	this->_type = "Dog";
-	std::cout << "Dog : Default constructor called" << std::endl;
+	std::cout << GREEN << "Dog : Default constructor called" << RESET << std::endl;
 	return ;
 }
 
 Dog::Dog(const Dog &src) : Animal(src)
 {
-	std::cout << "Dog : Copy constructor called" << std::endl;
+	std::cout << GREEN << "Dog : Copy constructor called" << RESET << std::endl;
 	return ;
 }
 
@@ -31,13 +31,13 @@ Dog	&Dog::operator=(const Dog &src)
 	{
 		this->_type = src._type;
 	}
-	std::cout << "Dog : Assignment operator called" << std::endl;
+	std::cout << BLUE << "Dog : Assignment operator called" << RESET << std::endl;
 	return (*this);
 }
 
 Dog::~Dog()
 {
-	std::cout << "Dog : Default destructor called" << std::endl;
+	std::cout << RED << "Dog : Default destructor called" << RESET << std::endl;
 	return ;
 }
 

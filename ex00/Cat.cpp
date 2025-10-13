@@ -12,16 +12,15 @@
 
 #include "Cat.hpp"
 
-Cat::Cat()
+Cat::Cat() : Animal("Cat")
 {
-	this->_type = "Cat";
-	std::cout << "Cat : Default constructor called" << std::endl;
+	std::cout << GREEN << "Cat : Default constructor called" << RESET << std::endl;
 	return ;
 }
 
 Cat::Cat(const Cat &src) : Animal(src)
 {
-	std::cout << "Cat : Copy Constructor called" << std::endl;
+	std::cout << GREEN << "Cat : Copy Constructor called" << RESET << std::endl;
 	return ;
 }
 
@@ -31,13 +30,13 @@ Cat	&Cat::operator=(const Cat &src)
 	{
 		this->_type = src._type;
 	}
-	std::cout << "Cat : Assignment operator called" << std::endl;
+	std::cout << BLUE << "Cat : Assignment operator called" << RESET << std::endl;
 	return (*this);
 }
 
 Cat::~Cat()
 {
-	std::cout << "Cat : Default destructor called" << std::endl;
+	std::cout << RED << "Cat : Default destructor called" << RESET << std::endl;
 	return ;
 }
 

@@ -14,13 +14,19 @@
 
 WrongAnimal::WrongAnimal() : _type("Wrong generic Animal")
 {
-	std::cout << "WrongAnimal : Default constructor called" << std::endl;
+	std::cout << GREEN << "WrongAnimal : Default constructor called" << RESET << std::endl;
+	return ;
+}
+
+WrongAnimal::WrongAnimal(std::string type) : _type(type)
+{
+	std::cout << GREEN << "WrongAnimal : Ordinary constructor called" << RESET << std::endl;
 	return ;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &src) : _type(src._type)
 {
-	std::cout << "WrongAnimal : Copy construtor called" << std::endl;
+	std::cout << GREEN << "WrongAnimal : Copy construtor called" << RESET << std::endl;
 	return ;
 }
 
@@ -30,13 +36,13 @@ WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &src)
 	{
 		this->_type = src._type;
 	}
-	std::cout << "WrongAnimal : Assignment operator called" << std::endl;
+	std::cout << BLUE << "WrongAnimal : Assignment operator called" << RESET << std::endl;
 	return (*this);
 }
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "WrongAnimal : Default destructor called" << std::endl;
+	std::cout << RED << "WrongAnimal : Default destructor called" << RESET << std::endl;
 	return ;
 }
 

@@ -11,17 +11,17 @@
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
+#include "WrongAnimal.hpp"
 
-WrongCat::WrongCat()
+WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
-	this->_type = "WrongCat";
-	std::cout << "WrongCat : Default constructor called" << std::endl;
+	std::cout << GREEN << "WrongCat : Default constructor called" << RESET << std::endl;
 	return ;
 }
 
 WrongCat::WrongCat(const WrongCat &src) : WrongAnimal(src)
 {
-	std::cout << "WrongCat : Copy constructor called" << std::endl;
+	std::cout << GREEN << "WrongCat : Copy constructor called" << RESET << std::endl;
 	return ;
 }
 
@@ -31,13 +31,13 @@ WrongCat &WrongCat::operator=(const WrongCat &src)
 	{
 		this->_type = src._type;
 	}
-	std::cout << "WrongCat : Assignment operator called" << std::endl;
+	std::cout << BLUE << "WrongCat : Assignment operator called" << RESET << std::endl;
 	return (*this);
 }
 
 WrongCat::~WrongCat()
 {
-	std::cout << "WrongCat : Default destructor called" << std::endl;
+	std::cout << RED << "WrongCat : Default destructor called" << RESET << std::endl;
 	return ;
 }
 

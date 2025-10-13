@@ -27,7 +27,7 @@ class Cat : public Animal
 		void		setIdea(std::string idea, int idx);
 		std::string	getIdea(int idx);
 	private:
-		Brain	*brain;
+		Brain	*_brain;
 };
 
 #endif

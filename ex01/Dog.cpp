@@ -12,17 +12,16 @@
 
 #include "Dog.hpp"
 
-Dog::Dog() : brain(new Brain)
+Dog::Dog() : Animal("Dog"), _brain(new Brain)
 {
-	this->_type = "Dog";
-	std::cout << "Dog : Default constructor called" << std::endl;
+	std::cout << GREEN << "Dog : Default constructor called" << RESET << std::endl;
 	return ;
 }
 
 Dog::Dog(const Dog &src) : Animal(src)
 {
-	this->brain = new Brain(*(src.brain));
-	std::cout << "Dog : Copy constructor called" << std::endl;
+	this->_brain = new Brain(*(src._brain));
+	std::cout << GREEN << "Dog : Copy constructor called" << RESET << std::endl;
 	return ;
 }
 
@@ -30,16 +29,17 @@ Dog	&Dog::operator=(const Dog &src)
 {
 	if (this != &src)
 	{
-		*(this->brain) = *(src.brain);
+		*(this->_brain) = *(src._brain);
 		this->_type = src._type;
 	}
-	std::cout << "Dog : Assignment operator called" << std::endl;
+	std::cout << BLUE << "Dog : Assignment operator called" << RESET << std::endl;
 	return (*this);
 }
 
 Dog::~Dog()
 {
-	std::cout << "Dog : Default destructor called" << std::endl;
+	delete this->_brain;
+	std::cout << RED << "Dog : Default destructor called" << RESET << std::endl;
 	return ;
 }
 
@@ -50,10 +50,10 @@ void	Dog::makeSound() const
 
 std::string	Dog::getIdea(int idx)
 {
-	return (this->brain->_ideas[idx]);
+	return (this->_brain->_ideas[idx]);
 }
 
 void	Dog::setIdea(std::string idea, int idx)
 {
-	this->brain->_ideas[idx] = idea;
+	this->_brain->_ideas[idx] = idea;
 }

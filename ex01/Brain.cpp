@@ -11,19 +11,20 @@
 /* ************************************************************************** */
 
 #include "Brain.hpp"
+#include "color.hpp"
 
 Brain::Brain()
 {
 	for (int i = 0; i < 100; i++)
 		this->_ideas[i] = "EAT !!!";
-	std::cout << "Brain : Default constructor called" << std::endl;
+	std::cout << GREEN << "Brain : Default constructor called" << RESET << std::endl;
 }
 
 Brain::Brain(const Brain &src)
 {
 	for (int i = 0; i < 100; i++)
 		this->_ideas[i] = src._ideas[i];
-	std::cout << "Brain : Copy constructor called" << std::endl;
+	std::cout << GREEN << "Brain : Copy constructor called" << RESET << std::endl;
 }
 
 Brain	&Brain::operator=(const Brain &src)
@@ -33,12 +34,12 @@ Brain	&Brain::operator=(const Brain &src)
 		for (int i = 0; i < 100; i++)
 			this->_ideas[i] = src._ideas[i];
 	}
-	std::cout << "assignment operator called" << std::endl;
+	std::cout << BLUE << "assignment operator called" << RESET << std::endl;
 	return (*this);
 }
 
 Brain::~Brain()
 {
-	std::cout << "Brain : Default destructor called" << std::endl;
+	std::cout << RED << "Brain : Default destructor called" << RESET << std::endl;
 }
 
