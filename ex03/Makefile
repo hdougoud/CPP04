@@ -2,7 +2,7 @@ NAME	= Materia
 CXX		= g++
 CFLAGS	= -Wall -Werror -Wextra -std=c++98 -g
 
-SRCS	= main.cpp AMateria.cpp Character.cpp MateriaSource.cpp
+SRCS	= main.cpp AMateria.cpp Character.cpp MateriaSource.cpp Ice.cpp Cure.cpp
 OBJECT	= $(SRCS:.cpp=.o)
 
 all: $(NAME)
