@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 18:01:32 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/15 21:21:14 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/16 16:10:06 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Ice::Ice() : AMateria("ice")
 	return ;
 }
 
-Ice::Ice(const Ice &src) : AMateria(src)
+	Ice::Ice(const Ice &src) : AMateria(src)
 {
 	std::cout << GREEN << "Ice : Copy constructor called" << RESET << std::endl;
 	return ;
@@ -41,3 +41,11 @@ Ice::~Ice()
 	std::cout << RED << "Ice : Default destructor called" << RESET << std::endl;
 	return ;
 }
+
+AMateria*	Ice::clone(void)
+{
+	Ice *ptr = new(std::nothrow) Ice;
+	if (!ptr)
+		return (NULL);
+}
+

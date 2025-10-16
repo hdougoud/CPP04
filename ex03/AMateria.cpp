@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 15:59:48 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/15 19:14:54 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/16 15:31:24 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ AMateria	&AMateria::operator=(const AMateria &src)
 	}
 	std::cout << BLUE << "AMateria : Assignment operator called" << RESET << std::endl;
 	return (*this);
+}
+
+AMateria::use(ICharacter& target)
+{
+	std::cout << "Use fonction" << std::endl;
 }
 
 AMateria::~AMateria()
