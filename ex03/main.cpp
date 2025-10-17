@@ -6,12 +6,12 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:10:33 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/16 18:05:04 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/17 14:58:29 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
-#include "Character.hpp"
+#include "ICharacter.hpp"
 #include "MateriaSource.hpp"
 
 int main()

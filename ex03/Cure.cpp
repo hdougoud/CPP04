@@ -1,16 +1,16 @@
-/* ************************************************************************** */
-/*                                                                            */
+/* ************************************************************************** *//*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   *
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 18:14:29 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/16 17:56:00 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/17 14:58:16 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
+#include "ICharacter.hpp"
 #include "AMateria.hpp"
 #include "color.hpp"
 
@@ -45,4 +45,9 @@ Cure::~Cure()
 AMateria	*Cure::clone(void) const
 {
 	return (new Cure(*this));
+}
+
+void	Cure::use(ICharacter &target)
+{
+	std::cout << "* heal " << target.getName() << "'s wounds *" << std::endl;
 }

@@ -6,11 +6,12 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 18:01:32 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/16 16:38:09 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/17 14:58:13 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
+#include "ICharacter.cpp"
 #include "AMateria.hpp"
 #include "color.hpp"
 
@@ -45,5 +46,10 @@ Ice::~Ice()
 AMateria*	Ice::clone(void) const
 {
 	return (new Ice(*this));
+}
+
+void	Ice::use(ICharacter& target) //const version ?
+{
+		std::cout << "hoots an ice bolt at " << target.getName() << std::endl;
 }
 

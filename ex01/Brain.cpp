@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 17:40:13 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/09 17:40:14 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/17 17:39:38 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,3 +43,12 @@ Brain::~Brain()
 	std::cout << RED << "Brain : Default destructor called" << RESET << std::endl;
 }
 
+std::string	Brain::getAnIdea(int idx) const
+{
+	return (this->_ideas[idx]);
+}
+
+void	Brain::setAnIdea(int idx, std::string idea)
+{
+	this->_ideas[idx] = idea;
+}

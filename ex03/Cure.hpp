@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 17:57:35 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/16 17:54:45 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/17 14:32:03 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ class Cure : public AMateria
 		Cure &operator=(const Cure &src);
 		AMateria *clone(void) const;
 		~Cure();
+		void	use(ICharacter &target);
 	private:
 };

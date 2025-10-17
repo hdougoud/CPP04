@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:14:29 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/03 10:16:23 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/17 10:35:21 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Cat : public Animal
 		Cat();
 		Cat(const Cat &src);
 		Cat &operator=(const Cat &src);
-		virtual ~Cat();
-		virtual void makeSound(void) const;
+		~Cat();
+		void makeSound(void) const;
 };
 
 #endif

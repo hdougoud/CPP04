@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 17:40:15 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/09 17:40:20 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/17 17:39:11 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ class Brain
 		Brain(const Brain &src);
 		Brain &operator=(const Brain &src);
 		~Brain();
-		std::string _ideas[100];
+		std::string	getAnIdea(int idx) const;
+		void		setAnIdea(int idx, std::string idea);
 	private:
-
+		std::string _ideas[100];
 };
 
 #endif

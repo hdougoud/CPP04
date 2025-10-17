@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:14:27 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/03 10:14:28 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/17 17:58:52 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,20 @@ void	Dog::makeSound() const
 
 std::string	Dog::getIdea(int idx)
 {
-	return (this->_brain->_ideas[idx]);
+	if (idx < 0 || idx > 100)
+	{
+		std::cout << RED << "Value out of range" << RESET << std::endl;
+		return "";
+	}
+	return (this->_brain->getAnIdea(idx));
 }
 
 void	Dog::setIdea(std::string idea, int idx)
 {
-	this->_brain->_ideas[idx] = idea;
+	if (idx < 0 || idx > 100)
+	{
+		std::cout << RED << "Value out of range" << RESET << std::endl;
+		return ;
+	}
+	this->_brain->setAnIdea(idx, idea);
 }

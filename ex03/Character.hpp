@@ -1,33 +1,23 @@
-/* ************************************************************************** */	
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 14:57:47 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/15 16:34:16 by hdougoud         ###   ########.fr       */
+/*   Created: 2025/10/17 15:15:20 by hdougoud          #+#    #+#             */
+/*   Updated: 2025/10/17 16:50:25 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_HPP
-# define CHARACTER_HPP
+#include "ICharacter.hpp"
 
-#include <iostream>
-
-typedef class	AMateria AMateria;
-
-class ICharacter
+class Character : public ICharacter
 {
 	public:
-		ICharacter();
-		ICharacter(const ICharacter &src);
-		ICharacter &operator=(const ICharacter &src);
-		virtual ~ICharacter() {}
-		virtual std::string const & getName() const = 0;
-		virtual void equip(AMateria* m) = 0;
-		virtual void unequip(int idx) = 0;
-		virtual void use(int idx, ICharacter& target) = 0;
+		Character();
+		Character(const Character &src);
+		Character operator=(const Character &src);
+		~Character();
+	private:
 };
-
-#endif

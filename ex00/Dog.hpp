@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:14:25 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/03 10:16:43 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/17 10:35:37 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Dog : public Animal
 		Dog();
 		Dog(const Dog &src);
 		Dog &operator=(const Dog &src);
-		virtual ~Dog();
-		virtual void makeSound(void) const;
+		~Dog();
+		void makeSound(void) const;
 };
 
 #endif
