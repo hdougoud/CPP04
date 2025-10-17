@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 18:14:29 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/15 21:18:10 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/16 17:56:00 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,9 @@ Cure::~Cure()
 {
 	std::cout << RED << "Cure : Default destructor called" << RESET << std::endl;
 	return ;
+}
+
+AMateria	*Cure::clone(void) const
+{
+	return (new Cure(*this));
 }

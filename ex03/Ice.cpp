@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 18:01:32 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/16 16:10:06 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/16 16:38:09 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,8 @@ Ice::~Ice()
 	return ;
 }
 
-AMateria*	Ice::clone(void)
+AMateria*	Ice::clone(void) const
 {
-	Ice *ptr = new(std::nothrow) Ice;
-	if (!ptr)
-		return (NULL);
+	return (new Ice(*this));
 }
 
