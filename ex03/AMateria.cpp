@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 15:59:48 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/17 11:57:44 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/20 18:10:03 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,10 @@ AMateria::~AMateria()
 {
 	std::cout << RED << "AMateria : Default destructor called" << RESET << std::endl;
 	return ;
+}
+
+void AMateria::use(ICharacter &target)
+{
+
 }
 

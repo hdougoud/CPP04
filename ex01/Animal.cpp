@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:14:35 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/03 15:55:15 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/19 21:09:45 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,3 @@ void	Animal::makeSound(void) const
 	std::cout << "Generic animal noise" << std::endl;
 }
 
-std::string	Animal::getType(void) const
-{
-	return (this->_type);
-}

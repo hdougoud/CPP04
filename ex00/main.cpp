@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:14:21 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/03 15:52:26 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/19 20:49:30 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,55 @@
 #include "Dog.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
+#include <new>
 
 int	main(void)
 {
-	const Animal *generic = new Animal();
-	const Animal *dog = new Dog();
-	const Animal *cat = new Cat();
-	const WrongAnimal *wrongGeneric = new WrongAnimal();
-	const WrongAnimal *wrongCat = new WrongCat();
-	std::cout << std::endl;
+	const Animal		*animal;
+	const Animal		*cat;
+	const Animal		*dog;
+	const WrongAnimal	*wrongAnimal;
+	const WrongAnimal	*wrongCat;
 
-	std::cout << cat->getType() << " " << std::endl;
-	std::cout << dog->getType() << " " << std::endl;
-	std::cout << generic->getType() << " " << std::endl;
-	std::cout << wrongGeneric->getType() << " " << std::endl;
-	std::cout << wrongCat->getType() << " " << std::endl;
+	std::cout << std::endl;
+	animal = new(std::nothrow) Animal;
+	if (!animal)
+		return (1);
+	std::cout << "The " << animal->getType() << " make ";
+	animal->makeSound();
+	delete animal;
+
+	std::cout << std::endl;
+	cat = new(std::nothrow) Cat;
+	if (!cat)
+		return(1);
+	std::cout << "The " << cat->getType() << " ";
 	cat->makeSound();
+	delete cat;
+	
+	std::cout << std::endl;
+	dog = new(std::nothrow) Dog;
+	if (!dog)
+		return (1);
+	std::cout << "The " << dog->getType() << " ";
 	dog->makeSound();
-	generic->makeSound();
-	wrongGeneric->makeSound();
-	wrongCat->makeSound();
+	delete dog;
 
 	std::cout << std::endl;
-	delete(wrongGeneric);
-	delete(wrongCat);
-	delete(cat);
-	delete(dog);
-	delete(generic);
+	wrongAnimal = new(std::nothrow) WrongAnimal;
+	if (!wrongAnimal)
+		return (1);
+	std::cout << "The " << wrongAnimal->getType() << " make ";
+	wrongAnimal->makeSound();
+	delete wrongAnimal;
+
+	std::cout << std::endl;
+	wrongCat = new(std::nothrow) WrongCat;
+	if (!wrongCat)
+		return (1);
+	std::cout << "The " << wrongCat->getType() << " make ";
+	wrongCat->makeSound();
+	delete wrongCat;
+	
 	return (0);
 }

@@ -6,14 +6,14 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 18:01:32 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/17 14:58:13 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/20 21:16:14 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
-#include "ICharacter.cpp"
 #include "AMateria.hpp"
 #include "color.hpp"
+#include "Character.hpp"
 
 Ice::Ice() : AMateria("ice")
 {

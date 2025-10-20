@@ -6,9 +6,12 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 17:49:08 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/17 14:14:11 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/20 20:29:59 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef ICE_HPP
+# define ICE_HPP
 
 #include <iostream>
 #include "AMateria.hpp"
@@ -24,3 +27,5 @@ class Ice : public AMateria
 		AMateria* clone(void) const;
 	private:
 };
+
+#endif

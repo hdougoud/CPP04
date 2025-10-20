@@ -6,10 +6,12 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 17:57:35 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/17 14:32:03 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/20 21:25:45 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CURE_HPP
+# define CURE_HPP
 
 #include <iostream>
 #include "AMateria.hpp"
@@ -25,3 +27,5 @@ class Cure : public AMateria
 		void	use(ICharacter &target);
 	private:
 };
+
+#endif

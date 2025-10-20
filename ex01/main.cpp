@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:14:21 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/17 17:55:17 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/20 15:16:27 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,48 +17,29 @@
 int	main(void)
 {
 	{
-		std::cout << "SUBJECT MAIN" << std::endl;
-		const Animal *j = new Dog();
-		const Animal *i = new Cat();
+		std::cout << "COPY TEST" << std::endl;
+		const Animal	*labrador;
+		const Animal	*hound;
+		Animal			*bulldog;
+		const Animal	*abyssinian;
+		const Animal	*kanaani;
+		Animal			*aegean;
 
-		delete j;
-		delete i;
+		
 	}
 	{
-		std::cout << "ARRAY TEST" << std::endl;
+		std::cout << "\nARRAY TEST" << std::endl;
 		Animal *array[10];
 
-		for(int i = 0; i < 10; i++)
+		for(int i = 0; i < 5; i++)
 		{
-			if (i < 5)
-				array[i] = new Dog();
-			else
-				array[i] = new Cat();
+			array[i] = new Dog();
+			array[i + 5] = new Cat();
 		}
 		for(int i = 0; i < 10; i++)
+		{
 			delete array[i];
-	}
-	{
-		std::cout << "\nDOG BRAIN TEST" << std::endl;
-		Dog labrador;
-		Dog	goldenRetrever;
-
-		std::cout << labrador.getIdea(-1) << std::endl;
-		std::cout << goldenRetrever.getIdea(0) << std::endl;
-		labrador.setIdea("Sleep", 0);
-		std::cout << labrador.getIdea(0) << std::endl;
-		std::cout << goldenRetrever.getIdea(0) << std::endl;
-	}
-	{
-		std::cout << "\nCAT BRAIN TEST" << std::endl;
-		Cat	ragDoll;
-		Cat	persian;
-
-		std::cout << ragDoll.getIdea(0) << std::endl;
-		std::cout << persian.getIdea(0) << std::endl;
-		ragDoll.setIdea("purr", 0);
-		std::cout << ragDoll.getIdea(0) << std::endl;
-		std::cout << persian.getIdea(0) << std::endl;
+		}
 	}
 	return (0);
 }
