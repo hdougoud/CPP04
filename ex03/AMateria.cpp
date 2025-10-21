@@ -6,11 +6,12 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 15:59:48 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/20 18:10:03 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/21 13:33:12 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 #include "color.hpp"
 
 AMateria::AMateria() : _type("Default")
@@ -49,6 +50,11 @@ AMateria::~AMateria()
 
 void AMateria::use(ICharacter &target)
 {
+	std::cout << BLUE << target.getName() << " use default materia" << RESET << std::endl;
+}
 
+const std::string	&AMateria::getType(void) const
+{
+	return (this->_type);
 }
 

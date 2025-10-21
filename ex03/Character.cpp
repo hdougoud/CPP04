@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 15:14:28 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/20 18:10:01 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/21 10:39:57 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ Character::Character(const Character &src) : _name(src._name)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_inventory[i])
-		
+		if (src._inventory[i])
+		{
+			return ;
+		}
 	}
 	std::cout << GREEN << "Character : Copy constructor called" << RESET << std::endl;
 	return ;
