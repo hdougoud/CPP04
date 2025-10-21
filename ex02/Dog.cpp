@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:14:27 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/03 10:14:28 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/21 18:21:45 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	Dog::makeSound() const
 	std::cout << "Bark !" << std::endl;
 }
 
-std::string	Dog::getIdea(int idx)
+std::string	Dog::getIdea(int idx) const
 {
 	return (this->_brain->_ideas[idx]);
 }

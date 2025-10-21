@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:14:33 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/03 15:54:40 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/21 18:22:41 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ class AAnimal
 		AAnimal &operator=(const AAnimal &src);
 		virtual ~AAnimal();
 		virtual void		makeSound(void) const = 0;
-		std::string	getType(void) const;
+		virtual std::string	getIdea(int idx) const = 0;
+		virtual void		setIdea(std::string idea, int idx) = 0;
+		std::string			getType(void) const;
 	protected:
 		std::string	_type;
 };

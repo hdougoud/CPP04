@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:14:21 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/21 16:51:22 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/21 17:27:35 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	main(void)
 				std::cout << RED << "Function \"new\" failed" << RESET << std::endl;
 				break;
 			}
-			i++;
 		}
 		for (int i = 0; i < 8; i++)
 		{

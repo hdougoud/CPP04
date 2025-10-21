@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:14:21 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/03 15:52:26 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/21 18:19:26 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,37 @@
 int	main(void)
 {
 	{
-		std::cout << "SUBJECT MAIN" << std::endl;
-		const AAnimal *j = new Dog();
-		const AAnimal *i = new Cat();
+		std::cout << "SUBJECT TEST" << std::endl;
 
-		delete j;
-		delete i;
+		const AAnimal*	dog = new Dog();
+		const AAnimal*	cat = new Cat();
+
+		delete dog;
+		delete cat;
 	}
 	{
-		std::cout << "\nDOG BRAIN TEST" << std::endl;
-		Dog labrador;
-		Dog	goldenRetrever;
+		std::cout << "\nARRAY TEST" << std::endl;
+		AAnimal	*petShop[8];
 
-		std::cout << labrador.getIdea(0) << std::endl;
-		std::cout << goldenRetrever.getIdea(0) << std::endl;
-		labrador.setIdea("Sleep", 0);
-		std::cout << labrador.getIdea(0) << std::endl;
-		std::cout << goldenRetrever.getIdea(0) << std::endl;
-	}
-	{
-		std::cout << "\nCAT BRAIN TEST" << std::endl;
-		Cat	ragDoll;
-		Cat	persian;
-
-		std::cout << ragDoll.getIdea(0) << std::endl;
-		std::cout << persian.getIdea(0) << std::endl;
-		ragDoll.setIdea("purr", 0);
-		std::cout << ragDoll.getIdea(0) << std::endl;
-		std::cout << persian.getIdea(0) << std::endl;
+		for (int i = 0; i < 8; i++)
+		{
+			if (i < 4)
+				petShop[i] = new(std::nothrow) Dog;
+			else
+				petShop[i] = new(std::nothrow) Cat;
+			if (!petShop[i])
+			{
+				std::cout << RED << "Function \"new\" failed" << RESET << std::endl;
+				break;
+			}
+		}
+		std::cout << petShop[5]->getIdea(0);
+		for (int i = 0; i < 8; i++)
+		{
+			if (petShop[i])
+				delete petShop[i];
+		}
 	}
 	return (0);
 }
+

@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 10:14:31 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/03 10:14:32 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/21 18:23:13 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void Cat::makeSound(void) const
 	std::cout << "Meeeeooooows" << std::endl;
 }
 
-std::string	Cat::getIdea(int idx)
+std::string	Cat::getIdea(int idx) const
 {
 	return (this->_brain->_ideas[idx]);
 }
