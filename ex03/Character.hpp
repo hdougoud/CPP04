@@ -6,11 +6,12 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 15:15:20 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/21 13:23:40 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/22 00:28:49 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ICharacter.hpp"
+#include "SFloor.hpp"
 
 class Character : public ICharacter
 {
@@ -27,4 +28,5 @@ class Character : public ICharacter
 	private:
 		std::string	_name;
 		AMateria	*_inventory[4];
+		Floor		*_floor;
 };

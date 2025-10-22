@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 15:14:28 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/21 10:39:57 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/22 11:01:31 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "Character.hpp"
 #include "AMateria.hpp"
 
-Character::Character() : _name("Default")
+Character::Character() : _name("Default"), _floor(Floor::getInstance())
 {
 	for(int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
@@ -23,7 +23,7 @@ Character::Character() : _name("Default")
 	return ;
 }
 
-Character::Character(std::string name) : _name(name)
+Character::Character(std::string name) : _name(name), _floor(Floor::getInstance())
 {
 	for(int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
@@ -31,13 +31,14 @@ Character::Character(std::string name) : _name(name)
 	return ;
 }
 
-Character::Character(const Character &src) : _name(src._name)
+Character::Character(const Character &src) : _name(src._name), _floor(src._floor)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (src._inventory[i])
+		for (int i = 0; i < 4; i++)
 		{
-			return ;
+			if (src._inventory[i])
+				this->_inventory[i] = src._inventory[i]->clone();
 		}
 	}
 	std::cout << GREEN << "Character : Copy constructor called" << RESET << std::endl;
@@ -49,9 +50,11 @@ Character &Character::operator=(const Character &src)
 	if (this != &src)
 	{
 		this->_name = src._name;
+		this->_floor = src._floor;
 		for (int i = 0; i < 4; i++)
 		{
-			
+			if (src._inventory[i])
+				this->_inventory[i] = src._inventory[i]->clone();
 		}
 	}
 	std::cout << BLUE << "Character : Assignment operator called" << RESET << std::endl;
@@ -84,6 +87,7 @@ void	Character::equip(AMateria *m)
 			return ;
 		}
 	}
+	std::cout << RED << this->getName() << "'s inventory is full, impossible to equip " << m->getType() << "Materia !" << RESET << std::endl;
 }
 
 void	Character::unequip(int idx)
@@ -92,7 +96,9 @@ void	Character::unequip(int idx)
 		return ;
 	if (!this->_inventory[idx])
 		return ;
-	delete this->_inventory[idx];
+
+	if (!this->_floor->dropItemOnFloor(this->_inventory[idx]))
+		this->_inventory[idx] = NULL;
 }
 
 void	Character::use(int idx, ICharacter &target)

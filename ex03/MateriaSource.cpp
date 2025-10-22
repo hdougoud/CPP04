@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 15:16:00 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/21 13:36:44 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/22 10:32:06 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 #include "color.hpp"
 #include "MateriaSource.hpp"
 #include "AMateria.hpp"
-#include "Ice.hpp"
-#include "Cure.hpp"
 
 MateriaSource::MateriaSource()
 {
@@ -31,7 +29,11 @@ MateriaSource::MateriaSource(const MateriaSource &src)
 	(void) src;
 	for (int i = 0; i < 4; i++)
 	{
-		return ;
+		for (int i = 0; i < 4; i++)
+		{
+			if (src._materiaLearned[i])
+				this->_materiaLearned[i] = src._materiaLearned[i]->clone();
+		}
 	}
 	std::cout << GREEN << "MateriaSource : Copy constructor called" << RESET << std::endl;
 	return ;
@@ -41,7 +43,11 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &src)
 {
 	if (this != &src)
 	{
-		return (*this);
+		for (int i = 0; i < 4; i++)
+		{
+			if (src._materiaLearned[i])
+				this->_materiaLearned[i] = src._materiaLearned[i]->clone();
+		}
 	}
 	std::cout << BLUE << "MateriaSource : Assignment operator called" << RESET << std::endl;
 	return (*this);
@@ -72,7 +78,6 @@ void	MateriaSource::learnMateria(AMateria *materia)
 		if(!this->_materiaLearned[i])
 		{
 			this->_materiaLearned[i] = materia;
-			//delete materia;
 			return ;
 		}
 		i++;

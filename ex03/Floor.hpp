@@ -6,20 +6,27 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 17:28:59 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/21 18:03:10 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/21 23:03:24 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
+typedef class AMateria AMAteria;
+
 class Floor
 {
 	public:
-		Floor(const Floor &other);
-		static Floor *getInstance(void);
+		Floor();
+		Floor(AMAteria *materia);
+		Floor(const Floor &src);
+		Floor &operator=(const Floor &src);
 		~Floor();
 	private:
-		Floor();
-		static Floor *_instancePtr;
+		static Floor	*_first;
+		static Floor	*_last;
+		Floor			*_next;
+		Floor			*_prev;
+		AMateria		*_materia;
 };
 
