@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/03 10:14:33 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/20 13:54:17 by hdougoud         ###   ########.fr       */
+/*   Created: 2025/10/23 10:08:59 by hdougoud          #+#    #+#             */
+/*   Updated: 2025/10/23 13:16:08 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,18 @@
 # define ANIMAL_HPP
 
 #include <iostream>
-#include "color.hpp"
 
 class Animal
 {
 	public:
 		Animal();
-		Animal(const std::string &type);
+		Animal(std::string type);
 		Animal(const Animal &src);
 		Animal &operator=(const Animal &src);
-		virtual ~Animal();
-		virtual void		makeSound(void) const;
-		std::string	getType(void) const;
+		~Animal();
+		void	makeSound(void) const;
 	protected:
-		std::string	_type;
+		std::string _type;
 };
 
 #endif
