@@ -6,14 +6,15 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 10:01:28 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/23 13:16:48 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/27 21:35:39 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
+#include <iostream>
 #include "color.hpp"
 
-Animal::Animal() : _type("Default")
+Animal::Animal() : _type("Default Animal")
 {
 	std::cout << GREEN << "Animal : Default constructor called" << RESET << std::endl;
 	return ;
@@ -43,10 +44,15 @@ Animal	&Animal::operator=(const Animal &src)
 
 Animal::~Animal()
 {
-	std::cout << RED << "Animal : Default destructor called" << RESET << std::endl;
+	std::cout << RED << "Animal : Destructor called" << RESET << std::endl;
 }
 
 void	Animal::makeSound(void) const
 {
-	std::cout << "Generic noise" << std::endl;
+	std::cout << "Default noise" << std::endl;
+}
+
+std::string Animal::getType(void) const
+{
+	return (this->_type);
 }
