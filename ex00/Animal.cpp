@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 10:01:28 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/27 21:35:39 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/28 00:25:35 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ Animal::Animal(const Animal &src) : _type(src._type)
 
 Animal	&Animal::operator=(const Animal &src)
 {
+	std::cout << BLUE << "Animal : Assignment operator called" << RESET << std::endl;
 	if (this != &src)
 	{
 		this->_type = src._type;
 	}
-	std::cout << BLUE << "Animal : Assignment operator called" << RESET << std::endl;
 	return (*this);
 }
 

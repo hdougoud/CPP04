@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 10:51:44 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/27 21:55:58 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/28 00:23:06 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Dog	&Dog::operator=(const Dog &src)
 
 Dog::~Dog()
 {
-	std::cout << RED << "Dog : Destrutor called" << RESET << std::endl;
+	std::cout << RED << "Dog : Destructor called" << RESET << std::endl;
 	return ;
 }
 

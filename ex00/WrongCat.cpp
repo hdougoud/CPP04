@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 18:30:30 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/27 21:58:24 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/28 00:22:56 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ WrongCat::WrongCat(const WrongCat &src) : WrongAnimal(src)
 
 WrongCat	&WrongCat::operator=(const WrongCat &src)
 {
-	std::cout << BLUE << "WrongCat : Assignement operator called" << RESET << std::endl;
+	std::cout << BLUE << "WrongCat : Assignment operator called" << RESET << std::endl;
 	if (this != &src)
 	{
 		WrongAnimal::operator=(src);

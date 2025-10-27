@@ -17,7 +17,7 @@ $(NAME) : $(OBJS)
 clean:
 	rm -f $(OBJS)
 
-fclean: clean all
+fclean: clean
 	rm -f $(NAME)
 
 re: clean all
