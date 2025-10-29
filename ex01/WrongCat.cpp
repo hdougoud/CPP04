@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 18:30:30 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/28 00:22:56 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/29 16:41:39 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@
 
 WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
-	std::cout << GREEN << "WrongCat : Default constructor called" << RESET << std::endl;
+	std::cout << C_CSTR << "WrongCat : Default constructor called" << RESET << std::endl;
 	return ;
 }
 
 WrongCat::WrongCat(const WrongCat &src) : WrongAnimal(src)
 {
-	std::cout << GREEN << "WrongCat : Copy constructor called" << RESET << std::endl;
+	std::cout << C_CSTR << "WrongCat : Copy constructor called" << RESET << std::endl;
 	return ;
 }
 
 WrongCat	&WrongCat::operator=(const WrongCat &src)
 {
-	std::cout << BLUE << "WrongCat : Assignment operator called" << RESET << std::endl;
+	std::cout << C_ASNM << "WrongCat : Assignment operator called" << RESET << std::endl;
 	if (this != &src)
 	{
 		WrongAnimal::operator=(src);
@@ -38,7 +38,7 @@ WrongCat	&WrongCat::operator=(const WrongCat &src)
 
 WrongCat::~WrongCat()
 {
-	std::cout << RED << "WrongCat : Destructor called" << RESET << std::endl;
+	std::cout << C_DSTR << "WrongCat : Destructor called" << RESET << std::endl;
 	return ;
 }
 

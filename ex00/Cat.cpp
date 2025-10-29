@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 13:22:56 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/27 21:55:28 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/29 16:39:08 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@
 
 Cat::Cat() : Animal("Cat")
 {
-	std::cout << GREEN << "Cat : Default constructor called" << RESET << std::endl;
+	std::cout << C_CSTR << "Cat : Default constructor called" << RESET << std::endl;
 	return ;
 }
 
 Cat::Cat(const Cat &src) : Animal(src)
 {
-	std::cout << GREEN << "Cat : Copy constructor called" << RESET << std::endl;
+	std::cout << C_CSTR << "Cat : Copy constructor called" << RESET << std::endl;
 	return ;
 }
 
 Cat	&Cat::operator=(const Cat &src)
 {
-	std::cout << BLUE << "Cat : Assignment operator called" << RESET << std::endl;
+	std::cout << C_ASNM << "Cat : Assignment operator called" << RESET << std::endl;
 	if (this != &src)
 	{
 		Animal::operator=(src);
@@ -38,7 +38,7 @@ Cat	&Cat::operator=(const Cat &src)
 
 Cat::~Cat()
 {
-	std::cout << RED << "Cat : Destructor called" << RESET << std::endl;
+	std::cout << C_DSTR << "Cat : Destructor called" << RESET << std::endl;
 	return ;
 }
 
