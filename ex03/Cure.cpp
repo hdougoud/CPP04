@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 18:17:38 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/29 21:16:41 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/30 17:02:41 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,3 +52,5 @@ AMateria	*Cure::clone(void) const
 	*(newMateria) = *(this);
 	return (newMateria);
 }
+
+

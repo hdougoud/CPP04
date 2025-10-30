@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:42:20 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/29 19:19:15 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/30 16:53:16 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ class Ice : public AMateria
 		Ice(const Ice &src);
 		Ice &operator=(const Ice &src);
 		~Ice();
+
 		AMateria	*clone(void) const;
+		void		use(ICharacter &target);
 };

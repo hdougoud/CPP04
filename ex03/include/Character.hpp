@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:42:12 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/29 21:32:08 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/30 15:36:50 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include "ICharacter.hpp"
 #include <string>
 #include "AMateria.hpp"
+#include "Floor.hpp"
+
+#define INVENTORY_SIZE 4
 
 class Character : public ICharacter
 {
@@ -30,5 +33,6 @@ class Character : public ICharacter
 		void use(int idx, ICharacter& target) = 0;
 	private:
 		std::string	_name;
-		AMateria	*_inventory[4];
+		AMateria	*_inventory[INVENTORY_SIZE];
+		Floor		*_floor;
 };

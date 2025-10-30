@@ -6,14 +6,13 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 10:39:51 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/28 17:02:58 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/30 16:00:59 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <new>
 #include "Animal.hpp"
-#include "Brain.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include "color.hpp"

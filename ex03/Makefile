@@ -1,8 +1,9 @@
 NAME		= Materia
 CXX			= g++
 CXXFLAGS	= -Wall -Werror -Wextra -std=c++98
+CXXFLAGS	+= -Iinclude
 
-SRCS		= main.cpp
+SRCS		= main.cpp Floor.cpp
 OBJS		= $(SRCS:.cpp=.o)
 
 all: $(NAME)
@@ -21,4 +22,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY all clean fclean re
+.PHONY: all clean fclean re

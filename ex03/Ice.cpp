@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:42:01 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/29 19:26:55 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/30 17:01:10 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <iostream>
 #include <new>
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 #include "color.hpp"
 
 Ice::Ice() : AMateria("ice")
@@ -51,4 +52,9 @@ AMateria	*Ice::clone(void) const
 	newMateria = new(std::nothrow) Ice();
 	*(newMateria) = *(this);
 	return (newMateria);
+}
+
+void	use(ICharacter &target)
+{
+	std::cout << BLUE << F_BOLD << "* shoots an ice bolt at " << target.getName() << " *" << RESET << std::endl;
 }

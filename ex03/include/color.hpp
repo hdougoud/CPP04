@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 10:28:06 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/28 14:41:02 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/10/30 11:37:28 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define GREEN			"\033[38;5;47m"
 # define BLUE			"\033[38;5;117m"
 # define RED			"\033[38;5;9m"
+# define YELLOW			"\033[38;5;220m"
 
 //C++ Colors
 # define C_CSTR			"\033[38;5;10m"		//Constructor color
