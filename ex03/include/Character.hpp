@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:42:12 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/30 15:36:50 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/02 21:32:17 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,17 @@ class Character : public ICharacter
 {
 	public:
 		Character();
+		Character(std::string const &name);
 		Character(const Character &src);
 		Character &operator=(const Character &src);
 		~Character();
 
-		std::string const &getName() const = 0;
-		void equip(AMateria* m) = 0;
-		void unequip(int idx) = 0;
-		void use(int idx, ICharacter& target) = 0;
+		std::string const &getName() const;
+		void equip(AMateria* m);
+		void unequip(int idx);
+		void use(int idx, ICharacter& target);
 	private:
 		std::string	_name;
 		AMateria	*_inventory[INVENTORY_SIZE];
-		Floor		*_floor;
+		Floor		&_floor;
 };

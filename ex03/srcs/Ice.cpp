@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:42:01 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/30 17:01:10 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/02 20:21:03 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@
 
 Ice::Ice() : AMateria("ice")
 {
-	std::cout << C_CSTR << "Ice : Default constructor called" << RESET << std::endl;
+	//std::cout << C_CSTR << "Ice : Default constructor called" << RESET << std::endl;
 	return ;
 }
 
 Ice::Ice(const Ice &src) : AMateria(src)
 {
-	std::cout << C_CSTR << "Ice : Copy constructor called" << RESET << std::endl;
+	//std::cout << C_CSTR << "Ice : Copy constructor called" << RESET << std::endl;
 	return ;
 }
 
 Ice	&Ice::operator=(const Ice &src)
 {
-	std::cout << C_ASNM << "Ice : Assignment operator called" << RESET << std::endl;
+	//std::cout << C_ASNM << "Ice : Assignment operator called" << RESET << std::endl;
 	if (this != &src)
 	{
 		AMateria::operator=(src);
@@ -41,7 +41,7 @@ Ice	&Ice::operator=(const Ice &src)
 
 Ice::~Ice()
 {
-	std::cout << C_DSTR << "Ice : Destructor called" << RESET << std::endl;
+	//std::cout << C_DSTR << "Ice : Destructor called" << RESET << std::endl;
 	return ;
 }
 
@@ -50,11 +50,12 @@ AMateria	*Ice::clone(void) const
 	AMateria	*newMateria;
 
 	newMateria = new(std::nothrow) Ice();
-	*(newMateria) = *(this);
+	if (newMateria)
+		*(newMateria) = *(this);
 	return (newMateria);
 }
 
-void	use(ICharacter &target)
+void	Ice::use(ICharacter &target)
 {
 	std::cout << BLUE << F_BOLD << "* shoots an ice bolt at " << target.getName() << " *" << RESET << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 19:02::17 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/30 16:47:59 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/02 19:09:15 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,35 @@
 
 Character::Character() : _name("noName"), _floor(Floor::getInstance())
 {
+	//std::cout << C_CSTR << "Character : Default constuctor called" << RESET << std::endl;
 	for(int i = 0; i < INVENTORY_SIZE; i++)
 		this->_inventory[i] = 0;
-	std::cout << C_CSTR << "Character : Default constuctor called" << RESET << std::endl;
+	return ;
+}
+
+Character::Character(std::string const &name) : _name(name), _floor(Floor::getInstance())
+{
+	//std::cout << C_CSTR << "Character : Ordinary constuctor called" << RESET << std::endl;
+	for(int i = 0; i < INVENTORY_SIZE; i++)
+		this->_inventory[i] = 0;
 	return ;
 }
 
 Character::Character(const Character &src) : _name(src._name), _floor(Floor::getInstance())
 {
+	//std::cout << C_CSTR << "Character : Copy constuctor called" << RESET << std::endl;
 	for(int i = 0; i < INVENTORY_SIZE; i++)
 	{
-		if (this->_inventory[i])
+		this->_inventory[i] = 0;
+		if (src._inventory[i])
 			this->_inventory[i] = src._inventory[i]->clone();
 	}
-	std::cout << C_CSTR << "Character : Copy constuctor called" << RESET << std::endl;
 	return ;
 }
 
 Character	&Character::operator=(const Character &src)
 {
-	std::cout << C_ASNM << "Character : Assignment operator called" << RESET << std::endl;
+	//std::cout << C_ASNM << "Character : Assignment operator called" << RESET << std::endl;
 	if (this != &src)
 	{
 		this->_name = src._name;
@@ -45,6 +54,8 @@ Character	&Character::operator=(const Character &src)
 		for(int i = 0; i < INVENTORY_SIZE; i++)
 		{
 			if (this->_inventory[i])
+				delete this->_inventory[i];
+			if (src._inventory[i])
 				this->_inventory[i] = src._inventory[i]->clone();
 		}
 	}
@@ -53,12 +64,12 @@ Character	&Character::operator=(const Character &src)
 
 Character::~Character()
 {
+	//std::cout << C_DSTR << "Character : Destructor called" << RESET << std::endl;
 	for(int i = 0; i < INVENTORY_SIZE; i++)
 	{
 		if (this->_inventory[i])
 			delete (this->_inventory[i]);
 	}
-	std::cout << C_DSTR << "Character : Destructor called" << RESET << std::endl;
 	return ;
 }
 
@@ -97,7 +108,7 @@ void	Character::unequip(int idx)
 		std::cout << YELLOW << this->_name << " has nothing in inventory slot" << idx << RESET << std::endl;
 		return ;
 	}
-	if (!this->_floor->dropMateria(this->_inventory[idx]))
+	if (!this->_floor.dropMateria(this->_inventory[idx]))
 		this->_inventory[idx] = 0;
 }
 
@@ -105,7 +116,7 @@ void	Character::use(int idx, ICharacter &target)
 {
 	if (!this->_inventory[idx])
 	{
-		std::cout << YELLOW << this->_name << " does not have any Materia in this slot" << std::endl;
+		std::cout << YELLOW << this->_name << " does not have any Materia in this slot" << RESET << std::endl;
 		return ;
 	}
 	this->_inventory[idx]->use(target);

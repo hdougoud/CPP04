@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/30 14:00:29 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/10/30 15:59:06 by hdougoud         ###   ########.fr       */
+/*   Created: 2025/10/29 15:57:29 by hdougoud          #+#    #+#             */
+/*   Updated: 2025/10/29 16:04:24 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Floor.hpp"
+#pragma once
 
-int main(void)
+#include <string>
+
+class AMateria;
+
+class IMateriaSource
 {
- 	delete (Floor::getInstance());
-	return (0);
-}
+	public:
+		virtual ~IMateriaSource() {}
+		virtual void learnMateria(AMateria*) = 0;
+		virtual AMateria* createMateria(std::string const & type) = 0;
+};

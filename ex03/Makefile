@@ -3,15 +3,18 @@ CXX			= g++
 CXXFLAGS	= -Wall -Werror -Wextra -std=c++98
 CXXFLAGS	+= -Iinclude
 
-SRCS		= main.cpp Floor.cpp
-OBJS		= $(SRCS:.cpp=.o)
+BUILD_DIR	= build/
+DIR_SRCS	= srcs/
+FILES_SRCS	= main.cpp AMateria.cpp Character.cpp Cure.cpp Floor.cpp Ice.cpp MateriaSource.cpp
+SRCS		= $(addprefix($(DIR_SRCS), $(FILES_SRCS)))
+OBJS		= $(FILES_SRCS:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME) : $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.cpp
+$(BUILD_DIR)%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
