@@ -1,21 +1,27 @@
 NAME		= Animal
-CXX			= c++
-CXXFLAGS	= -Wall -Werror -Wextra -std=c++98
-CXXFLAGS	+= -Iinclude
+CXX			= g++
+CXXFLAGS	= -Wall -Werror -Wextra -std=c++98 -Iinclude
 
-SRCS 		= main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
-OBJS		= $(SRCS:.cpp=.o)
+SRCS_DIR	= srcs/
+SRCS_FILES 	= main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRCS		= $(addprefix $(SRCS_DIR), $(SRCS_FILES))
 
-all: $(NAME)
+BUILD_DIR	= build/
+OBJS		= $(addprefix $(BUILD_DIR), $(SRCS_FILES:.cpp=.o))
+
+all: $(BUILD_DIR) $(NAME)
+
+$(BUILD_DIR) :
+	mkdir -p $(BUILD_DIR)
 
 $(NAME) : $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.cpp
+$(BUILD_DIR)%.o: $(SRCS_DIR)%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	rm -rf $(BUILD_DIR)
 
 fclean: clean
 	rm -f $(NAME)

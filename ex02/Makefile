@@ -4,27 +4,33 @@ CXX			= c++
 CXXFLAGS	= -Wall -Werror -Wextra -std=c++98
 CXXFLAGS	+= -Iinclude
 
-SRCS		= AAnimal.cpp Brain.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
-SRCS_MAIN	= $(SRCS) main.cpp
-SRCS_WRONG	= $(SRCS) wrongMain.cpp
-OBJS_MAIN	= $(SRCS_MAIN:.cpp=.o)
-OBJS_WRONG	= $(SRCS_WRONG:.cpp=.o)
+SRCS_DIR	= srcs/
+SRCS_FILES	= AAnimal.cpp Brain.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRCS_MAIN	= $(SRCS_FILES) main.cpp
+SRCS_WRONG	= $(SRCS_FILES) wrongMain.cpp
 
-all: $(NAME)
+BUILD_DIR	= build/
+OBJS_MAIN	= $(addprefix $(BUILD_DIR), $(SRCS_MAIN:.cpp=.o))
+OBJS_WRONG	= $(addprefix $(BUILD_DIR), $(SRCS_WRONG:.cpp=.o))
+
+all: $(BUILD_DIR) $(NAME)
 
 $(NAME) : $(OBJS_MAIN)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS_MAIN)
 
-wrong: $(WRONGNAME)
+wrong: $(BUILD_DIR) $(WRONGNAME)
 
-$(WRONGNAME) : $(OBJS_WRONG)
+$(WRONGNAME) : $(BUILD_DIR) $(OBJS_WRONG)
 	$(CXX) $(CXXFLAGS) -o $(WRONGNAME) $(OBJS_WRONG)
 
-%.o: %.cpp
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
+
+$(BUILD_DIR)%.o: $(SRCS_DIR)%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS_MAIN) wrongMain.o
+	rm -rf $(BUILD_DIR)
 
 fclean: clean
 	rm -f $(NAME) $(WRONGNAME)

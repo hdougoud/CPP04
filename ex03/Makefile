@@ -4,21 +4,25 @@ CXXFLAGS	= -Wall -Werror -Wextra -std=c++98
 CXXFLAGS	+= -Iinclude
 
 BUILD_DIR	= build/
-DIR_SRCS	= srcs/
-FILES_SRCS	= main.cpp AMateria.cpp Character.cpp Cure.cpp Floor.cpp Ice.cpp MateriaSource.cpp
-SRCS		= $(addprefix($(DIR_SRCS), $(FILES_SRCS)))
-OBJS		= $(FILES_SRCS:.cpp=.o)
+SRCS_DIR	= srcs/
 
-all: $(NAME)
+FILES_SRCS	= main.cpp AMateria.cpp Character.cpp Cure.cpp Floor.cpp Ice.cpp MateriaSource.cpp
+SRCS		= $(addprefix $(SRCS_DIR), $(FILES_SRCS))
+OBJS		= $(addprefix $(BUILD_DIR), $(FILES_SRCS:.cpp=.o))
+
+all: $(BUILD_DIR) $(NAME)
 
 $(NAME) : $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
-$(BUILD_DIR)%.o: %.cpp
+$(BUILD_DIR)%.o: $(SRCS_DIR)%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+$(BUILD_DIR) :
+	mkdir -p $(BUILD_DIR)
+
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(BUILD_DIR)
 
 fclean: clean
 	rm -rf $(NAME)
