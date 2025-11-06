@@ -1,7 +1,6 @@
 NAME		= Materia
 CXX			= g++
-CXXFLAGS	= -Wall -Werror -Wextra -std=c++98
-CXXFLAGS	+= -Iinclude
+CXXFLAGS	= -Wall -Werror -Wextra -std=c++98 -Iinclude
 
 BUILD_DIR	= build/
 SRCS_DIR	= srcs/

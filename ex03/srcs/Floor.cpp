@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 13:10:45 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/02 21:33:36 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/06 01:28:46 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,21 @@ Floor	&Floor::getInstance(void)
 	return (_instance);
 }
 
-bool	Floor::dropMateria(AMateria *materia)
+void	Floor::dropMateria(AMateria *materia)
 {
-
 	if (!materia)
 	{
 		std::cout << RED << "Canno't delete an empty Materia" << RESET << std::endl;
-		return (false);
+		return ;
 	}
 	for(int i = 0; i < FLOOR_SIZE; i++)
 	{
 		if (!this->_dropped[i])
+		{
 			this->_dropped[i] = materia;
-		return (false);
+			return ;
+		}
 	}
-	std::cout << YELLOW << "Floor is full, impossible to unequip your a Materia" << RESET << std::endl;
-	return (true);
+	std::cout << YELLOW << "Floor is full, impossible to drop an Materia, so it will be destroyed" << RESET << std::endl;
+	delete materia;
 }

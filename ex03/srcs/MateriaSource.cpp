@@ -6,18 +6,15 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 17:59:57 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/02 21:32:57 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/06 01:37:36 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 #include <iostream>
-#include <new>
 #include "AMateria.hpp"
 #include "color.hpp"
-#include "Cure.hpp"
 #include "Floor.hpp"
-#include "Ice.hpp"
 
 MateriaSource::MateriaSource()
 {
@@ -80,8 +77,8 @@ void	MateriaSource::learnMateria(AMateria *materia)
 			return ;
 		}
 	}
-	std::cout << YELLOW << "Learning capacity is saturated" << RESET << std::endl;
-	(Floor::getInstance()).dropMateria(materia);
+	std::cout << YELLOW << "Learning capacity is saturated, the current Materia has been dropped" << RESET << std::endl;
+	Floor::getInstance().dropMateria(materia);
 }
 
 AMateria	*MateriaSource::createMateria(std::string const &type)
@@ -91,7 +88,6 @@ AMateria	*MateriaSource::createMateria(std::string const &type)
 		if (this->_materiaLearned[i] && this->_materiaLearned[i]->getType() == type)
 			return (this->_materiaLearned[i]->clone());
 	}
-	std::cout << YELLOW << type << "-type Materia does not exist" << RESET << std::endl;
+	std::cout << YELLOW << "This Materia has not yet been learned." << RESET << std::endl;
 	return (0);
-	
 }

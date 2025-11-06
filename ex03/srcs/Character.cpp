@@ -6,7 +6,7 @@
 /*   By: hdougoud <hdougoud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 19:02::17 by hdougoud          #+#    #+#             */
-/*   Updated: 2025/11/02 19:09:15 by hdougoud         ###   ########.fr       */
+/*   Updated: 2025/11/06 00:25:48 by hdougoud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	Character::equip(AMateria *m)
 {
 	if (!m)
 	{
-		std::cout << YELLOW << this->_name << " cannot equip a non-existent Materia" << RESET << std::endl;
+		std::cout << RED << this->_name << " cannot equip a non-existent Materia" << RESET << std::endl;
 		return ;
 	}
 	for (int i = 0; i < INVENTORY_SIZE; i++)
@@ -93,7 +93,8 @@ void	Character::equip(AMateria *m)
 			return ;
 		}
 	}
-	std::cout << YELLOW << this->_name << "'s inventory is full, nothing happened" << RESET << std::endl;
+	std::cout << YELLOW << this->_name << "'s inventory is full, the current Materia has been dropped" << RESET << std::endl;
+	Floor::getInstance().dropMateria(m);
 }
 
 void	Character::unequip(int idx)
@@ -105,15 +106,20 @@ void	Character::unequip(int idx)
 	}
 	if (!this->_inventory[idx])
 	{
-		std::cout << YELLOW << this->_name << " has nothing in inventory slot" << idx << RESET << std::endl;
+		std::cout << YELLOW << this->_name << "'s inventory slot " << idx << " is empty" << RESET << std::endl;
 		return ;
 	}
-	if (!this->_floor.dropMateria(this->_inventory[idx]))
-		this->_inventory[idx] = 0;
+	this->_floor.dropMateria(this->_inventory[idx]);
+	this->_inventory[idx] = 0;
 }
 
 void	Character::use(int idx, ICharacter &target)
-{
+{	
+	if (idx < 0 || idx >= INVENTORY_SIZE)
+	{
+		std::cout << RED << "idx is out of range" << RESET << std::endl;
+		return ;
+	}
 	if (!this->_inventory[idx])
 	{
 		std::cout << YELLOW << this->_name << " does not have any Materia in this slot" << RESET << std::endl;
